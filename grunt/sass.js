@@ -4,9 +4,13 @@ module.exports = {
     options: {
       style: 'expanded'
     },
-    files: {
-      '<%= paths.src %>/css/main.css': '<%= paths.src %>/css/scss/main.scss'
-    }
+    files: [{
+      expand: true,
+      cwd: '<%= paths.src %>/css/scss',
+      src: ['*.scss'],
+      dest: '<%= paths.src %>/css',
+      ext: '.css'
+    }]
   },
 
   // This task compiles Sass for the browser-baed preview UI.
